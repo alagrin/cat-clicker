@@ -6,37 +6,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
     <title>Cat Clicker</title>
 </head>
 
 <body>
     <div class="container center-align">
-    <h1 class="text-center">Cat Clicker</h1>
-    <div class="well">
-        <a id="cat-img" href="#">
-            <img class="img-responsive" src="http://thecatapi.com/api/images/get?format=src&type=gif">
-        </a>
-        <h3>Enjoy these cats!</h3>
-        <p id="info"></p>
+        <h1 class="text-center">Cat Clicker</h1>
+        <div id="well" class="well col-md-6">
+            <a id="cat-img1" href="#">
+                <img class="img-responsive" src="http://thecatapi.com/api/images/get?format=src&type=gif">
+            </a>
+            <p id="info"></p>
+        </div>
+        <div id="well" class="well col-md-6">
+            <a id="cat-img2" href="#">
+                <img class="img-responsive" src="http://thecatapi.com/api/images/get?format=src&type=gif">
+            </a>
+            <p id="info2"></p>
+        </div>
+
     </div>
-    <div class="button-set">
+    <!-- <div class="button-set">
         <button class="btn btn-info" id="prev">Previous</button>
         <button class="btn btn-success" id="next">Next</button>
-    </div>
+    </div> -->
     </div>
     <script>
-        let catImage = document.getElementById('cat-img');
+        let catImage = document.getElementById('cat-img1');
+        let catImage2 = document.getElementById('cat-img2');
         let info = document.getElementById('info');
-
+        let well = document.getElementById('well');
         catImage.addEventListener('click', countClicks);
+        catImage2.addEventListener('click', countClicks2);
 
-        let clickCount = 0
+
+        let clickCount = 0;
 
         function countClicks() {
             clickCount += 1;
             info.innerHTML = `<p>You've clicked the image ${clickCount} time/s.</p>`;
         }
+
+        let clickCount2 = 0;
+
+        function countClicks2() {
+            clickCount2 += 1;
+            info2.innerHTML = `<p>You've clicked the image ${clickCount2} time/s.</p>`;
+        }
+
+        function randomName() {
+            let names = ['Kitty1', 'Kitty2', 'Kitty3', 'Kitty4']
+            let name = names[Math.floor(Math.random() * names.length)];
+            console.log(name);
+            t = document.createTextNode(name);
+            well.appendChild(t);
+        }
+        randomName()
     </script>
 </body>
 
