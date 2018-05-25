@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <title>Cat Clicker</title>
+</head>
+
+<body>
+    <div class="container center-align">
+    <h1 class="text-center">Cat Clicker</h1>
+    <div class="well">
+        <a id="cat-img" href="#">
+            <img class="img-responsive" src="http://thecatapi.com/api/images/get?format=src&type=gif">
+        </a>
+        <h3>Enjoy these cats!</h3>
+        <p id="info"></p>
+    </div>
+    <div class="button-set">
+        <button class="btn btn-info" id="prev">Previous</button>
+        <button class="btn btn-success" id="next">Next</button>
+    </div>
+    </div>
+    <script>
+        let catImage = document.getElementById('cat-img');
+        let info = document.getElementById('info');
+
+        catImage.addEventListener('click', countClicks);
+
+        let clickCount = 0
+
+        function countClicks() {
+            clickCount += 1;
+            info.innerHTML = `<p>You've clicked the image ${clickCount} time/s.</p>`;
+        }
+    </script>
+</body>
+
+</html>
